@@ -93,6 +93,16 @@ section {
   }
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+}
+
 /* ----- Reveal Animation ----- */
 .reveal,
 .fade-up {
@@ -1866,6 +1876,10 @@ section {
     padding: 50px 0;
   }
 
+  .container {
+    padding: 0 16px;
+  }
+
   .section-wave {
     height: 50px;
   }
@@ -1898,12 +1912,56 @@ section {
     font-size: 2rem;
   }
 
+  .about-visual {
+    min-height: 280px;
+  }
+
+  .cube-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cube {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cube-face {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cube-front { transform: rotateY(0deg) translateZ(75px); }
+  .cube-back { transform: rotateY(180deg) translateZ(75px); }
+  .cube-right { transform: rotateY(90deg) translateZ(75px); }
+  .cube-left { transform: rotateY(-90deg) translateZ(75px); }
+  .cube-top { transform: rotateX(90deg) translateZ(75px); }
+  .cube-bottom { transform: rotateX(-90deg) translateZ(75px); }
+
   .skills-section {
     padding: 50px 0;
   }
 
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .skill-card {
+    padding: 24px 20px;
+  }
+
   .services-section {
     padding: 50px 0;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-card {
+    padding: 24px 20px;
   }
 
   .experience-section {
@@ -1912,6 +1970,11 @@ section {
 
   .projects-section {
     padding: 50px 0;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .project-image {
@@ -1930,12 +1993,13 @@ section {
     padding: 50px 0;
   }
 
-  .services-section {
-    padding: 50px 0;
+  .certifications-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .service-card {
-    padding: 25px 20px;
+  .cert-card {
+    padding: 24px 20px;
   }
 
   .statistics-section {
@@ -1944,11 +2008,11 @@ section {
 
   .statistics-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
   }
 
   .stat-card {
-    padding: 25px 15px;
+    padding: 20px 12px;
   }
 
   .statistics-grid .stat-number {
@@ -1959,14 +2023,20 @@ section {
     font-size: 1.4rem;
   }
 
+  .stat-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 14px;
+  }
+
   .process-section {
-    padding: 60px 0;
+    padding: 50px 0;
   }
 
   .process-grid {
     grid-template-columns: 1fr;
     gap: 16px;
-    max-width: 400px;
+    max-width: 380px;
     margin: 0 auto;
   }
 
@@ -1984,24 +2054,45 @@ section {
 
   .benefits-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .benefit-card {
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .benefit-icon-wrapper {
+    width: 38px;
+    height: 38px;
   }
 
   .contact-section {
     padding: 50px 0;
   }
 
+  .contact-subtitle {
+    font-size: 0.95rem;
+    margin-top: -30px;
+    margin-bottom: 40px;
+  }
+
   .contact-grid {
-    gap: 25px;
+    gap: 20px;
   }
 
   .contact-circle {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
   }
 
   .contact-circle img {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .contact-item {
+    gap: 8px;
   }
 
   .scroll-top-btn {
@@ -2009,6 +2100,137 @@ section {
     right: 20px;
     width: 44px;
     height: 44px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .hero-name {
+    font-size: 1.6rem;
+  }
+
+  .hero-title {
+    font-size: 1rem;
+  }
+
+  .hero-greeting {
+    font-size: 1rem;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+  }
+
+  .hero-image-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .about-name {
+    font-size: 1.6rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  .about-stats {
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-stat {
+    align-items: center;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+  }
+
+  .statistics-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 16px 10px;
+  }
+
+  .statistics-grid .stat-number {
+    font-size: 1.6rem;
+  }
+
+  .statistics-grid .stat-plus {
+    font-size: 1.2rem;
+  }
+
+  .statistics-grid .stat-label {
+    font-size: 0.75rem;
+  }
+
+  .contact-circle {
+    width: 65px;
+    height: 65px;
+  }
+
+  .contact-circle img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .contact-label {
+    font-size: 0.75rem;
+  }
+
+  .contact-grid {
+    gap: 14px;
+  }
+
+  .project-title {
+    font-size: 1.15rem;
+  }
+
+  .project-desc {
+    font-size: 0.82rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .btn-project-primary,
+  .btn-project-secondary {
+    justify-content: center;
+  }
+
+  .skill-title {
+    font-size: 1.1rem;
+  }
+
+  .service-title {
+    font-size: 1.1rem;
+  }
+
+  .timeline-content {
+    padding: 16px;
+  }
+
+  .timeline-role {
+    font-size: 1rem;
+  }
+
+  .welcome-hello {
+    font-size: 2.2rem;
+  }
+
+  .welcome-message {
+    font-size: 0.95rem;
   }
 }
 
@@ -2086,6 +2308,58 @@ section {
 
   .benefits-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .process-step {
+    padding: 28px 16px;
+  }
+
+  .benefits-grid {
+    gap: 16px;
+  }
+
+  .benefit-card {
+    padding: 20px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 20px;
+  }
+
+  .certifications-grid {
+    gap: 20px;
+  }
+
+  .contact-grid {
+    gap: 30px;
+  }
+
+  .contact-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .contact-circle img {
+    width: 34px;
+    height: 34px;
   }
 }
 
