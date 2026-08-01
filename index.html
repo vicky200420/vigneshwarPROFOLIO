@@ -1,933 +1,808 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vigneshwar D - Python Full Stack Developer portfolio. Skilled in Django, JavaScript, Bootstrap, and modern web technologies.">
-    <meta name="keywords" content="Python, Full Stack Developer, Django, Portfolio, Vigneshwar D">
-    <meta property="og:title" content="Vigneshwar D | Python Full Stack Developer">
-    <meta property="og:description" content="Python Full-Stack Developer skilled in Django, JavaScript, and modern web technologies.">
-    <meta property="og:type" content="website">
-    <title>Vigneshwar D | Python Full Stack Developer</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Roboto:wght@300;400;500;700&family=Quicksand:wght@300;500;700&family=Cormorant+Garamond:wght@400;600;700;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./index.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vigneshwar D - Python Full Stack Developer portfolio. Skilled in Django, JavaScript, Bootstrap, and modern web technologies.">
+<meta name="keywords" content="Python, Full Stack Developer, Django, Portfolio, Vigneshwar D">
+<meta property="og:title" content="Vigneshwar D | Python Full Stack Developer">
+<meta property="og:description" content="Python Full-Stack Developer skilled in Django, JavaScript, and modern web technologies.">
+<meta property="og:type" content="website">
+<title>Vigneshwar D | Python Full Stack Developer</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<!-- AOS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+<!-- Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./index.css">
 </head>
 <body>
 
-    <!------------------------------ Welcome Screen ------------------------------>
-    <div id="welcome-screen">
-        <div class="welcome-content">
-            <h1 class="welcome-hello">Hello,I am Vigneshwar</h1>
-            <p class="welcome-message">Welcome to my profile</p>
+<!-- ambient layers -->
+<div id="ambient" aria-hidden="true">
+  <div class="aurora-blob b1"></div>
+  <div class="aurora-blob b2"></div>
+  <div class="aurora-blob b3"></div>
+</div>
+<div id="tsparticles" aria-hidden="true"></div>
+<div class="noise-overlay" aria-hidden="true"></div>
+<div id="spotlight" aria-hidden="true"></div>
+
+<!-- custom cursor -->
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- scroll progress -->
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- confetti -->
+<canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+<!-- global svg defs for skill rings -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6c8cff"/>
+      <stop offset="55%" stop-color="#b285f7"/>
+      <stop offset="100%" stop-color="#4fd6c4"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- Welcome / preloader -->
+<div id="welcome-screen">
+  <div class="welcome-content">
+    <span class="welcome-tag">$ whoami</span>
+    <h1 class="welcome-hello">Vigneshwar D</h1>
+    <p class="welcome-message" style="color:var(--text-2); font-family:var(--font-mono); font-size:.85rem;">booting portfolio.exe</p>
+    <div class="welcome-bar"></div>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav id="mainNav">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#home">Vignesh<span class="brand-dot">.</span>dev</a>
+
+    <ul class="nav-links d-none d-lg-flex">
+      <li><a class="nav-link active" href="#home">Home</a></li>
+      <li><a class="nav-link" href="#abouts">About</a></li>
+      <li><a class="nav-link" href="#skills">Skills</a></li>
+      <li><a class="nav-link" href="#services">Services</a></li>
+      <li><a class="nav-link" href="#experience">Experience</a></li>
+      <li><a class="nav-link" href="#projects">Projects</a></li>
+      <li><a class="nav-link" href="#certifications">Certificates</a></li>
+    </ul>
+
+    <div class="nav-tools">
+      <button class="kbd-hint d-none d-md-flex" id="cmdkTrigger" aria-label="Open command palette" type="button">
+        <i class="bi bi-search"></i> Search <kbd>Ctrl</kbd><kbd>K</kbd>
+      </button>
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle light and dark theme" type="button">
+        <i class="bi bi-moon-stars" id="themeIcon"></i>
+      </button>
+      <a href="#contacts" class="contact-btn d-none d-sm-inline-flex">Contact</a>
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile offcanvas menu -->
+<div class="offcanvas offcanvas-end offcanvas-menu" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <span class="navbar-brand" style="font-size:1rem;">Menu</span>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <a class="nav-link" href="#home">Home</a>
+    <a class="nav-link" href="#abouts">About</a>
+    <a class="nav-link" href="#skills">Skills</a>
+    <a class="nav-link" href="#services">Services</a>
+    <a class="nav-link" href="#experience">Experience</a>
+    <a class="nav-link" href="#projects">Projects</a>
+    <a class="nav-link" href="#certifications">Certificates</a>
+    <a class="nav-link" href="#contacts">Contact</a>
+  </div>
+</div>
+
+<!-- Hero -->
+<section id="home" class="hero-section">
+  <div class="hero-container">
+    <div class="hero-content" data-aos="fade-up">
+      <span class="hero-greeting">$ echo "hello world"</span>
+      <h1 class="hero-name">Vigneshwar D</h1>
+      <h2 class="hero-title"><span class="typed-text"></span><span class="cursor">|</span></h2>
+      <p class="hero-desc">I build responsive, efficient, and user-focused web applications with clean, scalable code using Django, JavaScript, and modern frontend tools.</p>
+      <div class="hero-actions">
+        <a class="btn-hero-primary btn-ripple" href="mailto:vigneshwar312@gmail.com">
+          <span>Hire Me</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor"><path d="m480-320 160-160-160-160-56 56 64 64H320v80h168l-64 64 56 56Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+        </a>
+        <a class="btn-hero-secondary btn-ripple" href="./Vigneshwar Resume updated(1).pdf" download>
+          <span>Download Resume</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
+        </a>
+        <a class="btn-hero-tertiary btn-ripple" href="#projects">
+          <span>View Projects</span>
+        </a>
+      </div>
+      <div class="hero-badges">
+        <span class="tech-badge"><i class="bi bi-filetype-py"></i>Python</span>
+        <span class="tech-badge"><i class="bi bi-bootstrap"></i>Django</span>
+        <span class="tech-badge"><i class="bi bi-filetype-html"></i>HTML5</span>
+        <span class="tech-badge"><i class="bi bi-filetype-css"></i>CSS3</span>
+        <span class="tech-badge"><i class="bi bi-bootstrap-fill"></i>Bootstrap</span>
+        <span class="tech-badge"><i class="bi bi-filetype-js"></i>JavaScript</span>
+        <span class="tech-badge"><i class="bi bi-database"></i>MySQL</span>
+        <span class="tech-badge"><i class="bi bi-github"></i>GitHub</span>
+      </div>
+    </div>
+    <div class="hero-image" data-aos="fade-up" data-aos-delay="150">
+      <div class="hero-image-wrapper" data-tilt data-tilt-max="8" data-tilt-glare data-tilt-max-glare="0.2">
+        <div class="hero-img-glow"></div>
+        <div class="hero-ring r1"></div>
+        <div class="hero-ring r2"></div>
+        <img src="./Gemini_Generated_Image_i45vzoi45vzoi45v-removebg-preview.png" alt="Vigneshwar D" class="hero-img" loading="lazy">
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-indicator">
+    <span>Scroll Down</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="abouts">
+  <div class="container">
+    <div class="section-kicker-row">
+      <div>
+        <span class="eyebrow">~/about-me<span class="blink"></span></span>
+        <h2 class="section-title">About <span class="text-gradient">Me</span></h2>
+      </div>
+    </div>
+    <div class="about-grid">
+      <div class="about-visual" data-aos="fade-right">
+        <div class="about-deco about-deco-1"></div>
+        <div class="about-frame" data-tilt data-tilt-max="6">
+          <img src="./vignesh-removebg-preview.png" alt="Vigneshwar D portrait" loading="lazy">
+          <span class="about-frame-tag">Chennai, IN</span>
         </div>
+        <div class="about-deco about-deco-2"></div>
+      </div>
+      <div class="about-content" data-aos="fade-left">
+        <h3 class="about-name">Vigneshwar D</h3>
+        <p class="about-text">A passionate Python Full-Stack Developer creating dynamic web applications using Django, JavaScript, and modern UI technologies. I love solving problems and building meaningful digital experiences.</p>
+        <div class="about-stats glass">
+          <div class="about-stat">
+            <span class="stat-number" data-countup="5">0</span><span>+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="about-stat">
+            <span class="stat-number" data-countup="2">0</span><span>+</span>
+            <span class="stat-label">Frameworks</span>
+          </div>
+          <div class="about-stat">
+            <span class="stat-number" data-countup="100">0</span><span>%</span>
+            <span class="stat-label">Dedication</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <div class="container">
+    <div class="section-kicker-row">
+      <div>
+        <span class="eyebrow">$ skills --list<span class="blink"></span></span>
+        <h2 class="section-title">Technical <span class="text-gradient">Skills</span></h2>
+      </div>
+      <p class="section-sub">A focused stack for shipping full-stack Python & Django applications end to end.</p>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card glass" data-aos="zoom-in" data-aos-delay="0">
+        <div class="skill-ring">
+          <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="50"/><circle class="fill" cx="60" cy="60" r="50" data-pct="90"/></svg>
+          <span class="pct">90%</span>
+        </div>
+        <h3 class="skill-title">Frontend</h3>
+        <p class="skill-desc">HTML · CSS · Bootstrap · JS</p>
+      </div>
+
+      <div class="skill-card glass" data-aos="zoom-in" data-aos-delay="100">
+        <div class="skill-ring">
+          <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="50"/><circle class="fill" cx="60" cy="60" r="50" data-pct="85"/></svg>
+          <span class="pct">85%</span>
+        </div>
+        <h3 class="skill-title">Backend</h3>
+        <p class="skill-desc">Python · Django · ORM</p>
+      </div>
+
+      <div class="skill-card glass" data-aos="zoom-in" data-aos-delay="200">
+        <div class="skill-ring">
+          <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="50"/><circle class="fill" cx="60" cy="60" r="50" data-pct="80"/></svg>
+          <span class="pct">80%</span>
+        </div>
+        <h3 class="skill-title">Database</h3>
+        <p class="skill-desc">MySQL · PostgreSQL</p>
+      </div>
+
+      <div class="skill-card glass" data-aos="zoom-in" data-aos-delay="300">
+        <div class="skill-ring">
+          <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="50"/><circle class="fill" cx="60" cy="60" r="50" data-pct="75"/></svg>
+          <span class="pct">75%</span>
+        </div>
+        <h3 class="skill-title">Tools</h3>
+        <p class="skill-desc">Git · VS Code</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <div class="container">
+    <div class="section-kicker-row">
+      <div>
+        <span class="eyebrow">$ services --offered<span class="blink"></span></span>
+        <h2 class="section-title">What <span class="text-gradient">I Do</span></h2>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card glass" data-aos="fade-up">
+        <div class="service-icon-wrapper"><i class="bi bi-code-slash" style="font-size:1.5rem;"></i></div>
+        <h3 class="service-title">Web Development</h3>
+        <p class="service-desc">Full-stack web solutions built with modern technologies</p>
+        <div class="service-items">
+          <span class="service-item">Business Websites</span>
+          <span class="service-item">Portfolio Websites</span>
+          <span class="service-item">Hospital Systems</span>
+          <span class="service-item">Student Projects</span>
+          <span class="service-item">Landing Pages</span>
+          <span class="service-item">Admin Dashboards</span>
+          <span class="service-item">E-Commerce Websites</span>
+        </div>
+      </div>
+      <div class="service-card glass" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-icon-wrapper"><i class="bi bi-hdd-network" style="font-size:1.5rem;"></i></div>
+        <h3 class="service-title">Backend Development</h3>
+        <p class="service-desc">Scalable APIs and database solutions with Django</p>
+        <div class="service-items">
+          <span class="service-item">Django APIs</span>
+          <span class="service-item">Authentication</span>
+          <span class="service-item">Database Design</span>
+          <span class="service-item">Admin Panels</span>
+        </div>
+      </div>
+      <div class="service-card glass" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-icon-wrapper"><i class="bi bi-palette" style="font-size:1.5rem;"></i></div>
+        <h3 class="service-title">UI Development</h3>
+        <p class="service-desc">Pixel-perfect responsive interfaces with modern frameworks</p>
+        <div class="service-items">
+          <span class="service-item">Responsive Websites</span>
+          <span class="service-item">Bootstrap 5</span>
+          <span class="service-item">Modern UI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience Timeline -->
+<section id="experience">
+  <div class="container">
+    <div class="section-kicker-row">
+      <div>
+        <span class="eyebrow">$ git log --experience<span class="blink"></span></span>
+        <h2 class="section-title">Work <span class="text-gradient">Experience</span></h2>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass">
+          <span class="timeline-date">2025 — Present</span>
+          <h3 class="timeline-role">Developer Intern</h3>
+          <h4 class="timeline-company">MediVoy</h4>
+          <p class="timeline-desc">Developed and maintained RESTful APIs using Django REST Framework. Built responsive frontend interfaces with Bootstrap and JavaScript. Collaborated on database schema design and optimization for MySQL and PostgreSQL.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass">
+          <span class="timeline-date">2024 — 2025</span>
+          <h3 class="timeline-role">Python Developer Intern</h3>
+          <h4 class="timeline-company">The SkyBrisk</h4>
+          <p class="timeline-desc">Built full-stack web applications using Django and Bootstrap. Implemented user authentication, payment integration, and admin dashboards. Worked with PostgreSQL and SQLite databases for data management.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass">
+          <span class="timeline-date">2023 — 2024</span>
+          <h3 class="timeline-role">Freelance Web Developer</h3>
+          <h4 class="timeline-company">Self-Employed</h4>
+          <p class="timeline-desc">Designed and delivered custom websites for small businesses using HTML, CSS, JavaScript, and Django. Managed client relationships, project timelines, and deployment on various hosting platforms.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="container">
+    <div class="section-kicker-row">
+      <div>
+        <span class="eyebrow">$ ls ./projects<span class="blink"></span></span>
+        <h2 class="section-title">Featured <span class="text-gradient">Projects</span></h2>
+      </div>
+      <p class="section-sub">A mix of freelance, internship, and personal builds across Django, Python, and vanilla frontend stacks.</p>
     </div>
 
-    <!------------------------------ Navigation ------------------------------>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#home">DE<span class="brand-dot">.</span></a>
-            <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+    <div class="projects-toolbar" role="tablist" aria-label="Filter projects by technology">
+      <button class="filter-pill active" data-filter="all">All</button>
+      <button class="filter-pill" data-filter="python">Python / Django</button>
+      <button class="filter-pill" data-filter="frontend">Frontend</button>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card glass" data-aos="fade-up" data-category="frontend">
+        <div class="project-image" style="--grad-1:#ff6b6b; --grad-2:#ffa502;">
+          <div class="project-image-glow"></div>
+          <span class="project-image-icon">🍽️</span>
+        </div>
+        <div class="project-content">
+          <div class="project-tech-tags"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span></div>
+          <h3 class="project-title">Tender Fried Restaurants</h3>
+          <p class="project-desc">A Tinder-style restaurant discovery web app that allows users to swipe through restaurant cards to like or skip options.</p>
+          <div class="project-links">
+            <a href="https://vicky200420.github.io/TFR-Tender-Fired-Restaurants/" target="_blank" class="btn-project-primary"><span>Live Demo</span><i class="bi bi-box-arrow-up-right"></i></a>
+            <a href="https://github.com/vicky200420/TFR-Tender-Fired-Restaurants.git" target="_blank" class="btn-project-secondary"><span>GitHub</span><i class="bi bi-github"></i></a>
+            <button type="button" class="btn-project-demo" data-bs-toggle="modal" data-bs-target="#projectModal"
+              data-title="Tender Fried Restaurants" data-tags="HTML,CSS"
+              data-desc="A Tinder-style restaurant discovery web app that allows users to swipe through restaurant cards to like or skip options, built with a focus on playful micro-interactions and a mobile-first swipe gesture."
+              data-challenges="Recreating a natural swipe-and-snap card interaction using only vanilla CSS transforms and JS event listeners, without a gesture library."
+              data-solutions="Built a custom drag-tracking function with pointer events and CSS transitions to snap cards back or fling them off-screen based on velocity and threshold."
+              data-live="https://vicky200420.github.io/TFR-Tender-Fired-Restaurants/" data-github="https://github.com/vicky200420/TFR-Tender-Fired-Restaurants.git"
+              data-grad1="#ff6b6b" data-grad2="#ffa502" data-icon="🍽️">
+              <span>Case Study</span><i class="bi bi-file-earmark-text"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#abouts">About Me</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-                </ul>
-                <a href="#contacts" class="contact-btn">Contact</a>
-            </div>
+          </div>
         </div>
-    </nav>
+      </div>
 
-    <!------------------------------ Hero Section ------------------------------>
-    <section id="home" class="hero-section">
-        <div class="hero-container">
-            <div class="hero-content fade-up">
-                <span class="hero-greeting">Hello, I'm</span>
-                <h1 class="hero-name">Vigneshwar D</h1>
-                <h2 class="hero-title"><span class="typewriter-text"></span><span class="cursor">|</span></h2>
-                <p class="hero-desc">I build responsive, efficient, and user-focused web applications with clean, scalable code using Django, JavaScript, and modern frontend tools.</p>
-                <div class="hero-actions">
-                    <a class="btn-hero-primary" href="mailto:vigneshwar312@gmail.com">
-                        <span>Let's Talk</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m480-320 160-160-160-160-56 56 64 64H320v80h168l-64 64 56 56Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
-                    </a>
-                    <a class="btn-hero-secondary" href="./Vigneshwar Resume updated(1).pdf" download>
-                        <span>Download Resume</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
-                    </a>
-                    <a class="btn-hero-tertiary" href="#projects">
-                        <span>View Projects</span>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image fade-up">
-                <div class="hero-image-wrapper">
-                    <div class="hero-img-glow"></div>
-                    <img src="./Gemini_Generated_Image_i45vzoi45vzoi45v-removebg-preview.png" alt="Vigneshwar D" class="hero-img" loading="lazy">
-                </div>
-                <div class="hero-decoration"></div>
-            </div>
+      <div class="project-card glass" data-aos="fade-up" data-aos-delay="80" data-category="python">
+        <div class="project-image" style="--grad-1:#38d9a9; --grad-2:#4facfe;">
+          <div class="project-image-glow"></div>
+          <span class="project-image-icon">🏥</span>
         </div>
-        <div class="hero-scroll-indicator">
-            <span>Scroll Down</span>
-            <div class="scroll-arrow"></div>
+        <div class="project-content">
+          <div class="project-tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">SQLite</span><span class="tech-tag">Bootstrap</span></div>
+          <h3 class="project-title">Clinic Appointment System</h3>
+          <p class="project-desc">Online doctor appointment booking platform with scheduling and patient registration.</p>
+          <div class="project-links">
+            <a href="https://hospital-appointment-mcp2.onrender.com" target="_blank" class="btn-project-primary"><span>Live Demo</span><i class="bi bi-box-arrow-up-right"></i></a>
+            <a href="https://github.com/vicky200420/Hospital_appointment.git" target="_blank" class="btn-project-secondary"><span>GitHub</span><i class="bi bi-github"></i></a>
+            <button type="button" class="btn-project-demo" data-bs-toggle="modal" data-bs-target="#projectModal"
+              data-title="Clinic Appointment System" data-tags="Python,SQLite,Bootstrap"
+              data-desc="An online doctor appointment booking platform handling patient registration, doctor availability, and appointment scheduling with a clean booking flow."
+              data-challenges="Preventing double-booking of the same doctor slot and keeping the scheduling UI clear across devices."
+              data-solutions="Added slot-level availability checks at the database layer before confirming a booking, paired with a Bootstrap calendar-style picker for clarity."
+              data-live="https://hospital-appointment-mcp2.onrender.com" data-github="https://github.com/vicky200420/Hospital_appointment.git"
+              data-grad1="#38d9a9" data-grad2="#4facfe" data-icon="🏥">
+              <span>Case Study</span><i class="bi bi-file-earmark-text"></i>
+            </button>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!------------------------------ Wave Divider 1 ------------------------------>
-    <div class="section-wave wave-top">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-            <path d="M0,40 C360,120 1080,0 1440,40 L1440,120 L0,120 Z" fill="#080c1a"/>
-        </svg>
+      <div class="project-card glass" data-aos="fade-up" data-category="python">
+        <div class="project-image" style="--grad-1:#a18cd1; --grad-2:#fbc2eb;">
+          <div class="project-image-glow"></div>
+          <span class="project-image-icon">🛒</span>
+        </div>
+        <div class="project-content">
+          <div class="project-tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Bootstrap</span></div>
+          <h3 class="project-title">E-Kart Ecommerce</h3>
+          <p class="project-desc">Full-stack e-commerce application using Django following MVT architecture with product management and cart functionality.</p>
+          <div class="project-links">
+            <a href="https://github.com/vicky200420/ekart_django.git" target="_blank" class="btn-project-secondary"><span>GitHub</span><i class="bi bi-github"></i></a>
+            <button type="button" class="btn-project-demo" data-bs-toggle="modal" data-bs-target="#projectModal"
+              data-title="E-Kart Ecommerce" data-tags="Python,PostgreSQL,Bootstrap,Django"
+              data-desc="A full-stack e-commerce application built with Django following MVT architecture, covering product catalog management, cart, and checkout flow."
+              data-challenges="Structuring the Django models so product variants, inventory, and cart state stayed consistent as items moved between browsing and checkout."
+              data-solutions="Normalized the schema around product, variant, and cart-item models, and used Django's ORM signals to keep stock counts in sync on order confirmation."
+              data-live="" data-github="https://github.com/vicky200420/ekart_django.git"
+              data-grad1="#a18cd1" data-grad2="#fbc2eb" data-icon="🛒">
+              <span>Case Study</span><i class="bi bi-file-earmark-text"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card glass" data-aos="fade-up" data-aos-delay="80" data-category="frontend">
+        <div class="project-image" style="--grad-1:#f093fb; --grad-2:#f5576c;">
+          <div class="project-image-glow"></div>
+          <span class="project-image-icon">🛍️</span>
+        </div>
+        <div class="project-content">
+          <div class="project-tech-tags"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">Bootstrap</span><span class="tech-tag">JS</span></div>
+          <h3 class="project-title">SuperMarket</h3>
+          <p class="project-desc">A responsive frontend website with interactive menu, cart UI, and modern food-themed design. Built to simulate an online ordering experience.</p>
+          <div class="project-links">
+            <a href="https://vicky200420.github.io/Supermarket/" target="_blank" class="btn-project-primary"><span>Live Demo</span><i class="bi bi-box-arrow-up-right"></i></a>
+            <a href="https://github.com/vicky200420/Supermarket" target="_blank" class="btn-project-secondary"><span>GitHub</span><i class="bi bi-github"></i></a>
+            <button type="button" class="btn-project-demo" data-bs-toggle="modal" data-bs-target="#projectModal"
+              data-title="SuperMarket" data-tags="HTML,CSS,Bootstrap,JavaScript"
+              data-desc="A responsive frontend storefront with an interactive menu, cart UI, and a modern food-themed visual design simulating an online ordering experience."
+              data-challenges="Keeping the cart state and totals accurate purely on the client side, with no backend to fall back on."
+              data-solutions="Managed cart state in a single JS object synced to the DOM on every change, with event delegation so dynamically added items stayed interactive."
+              data-live="https://vicky200420.github.io/Supermarket/" data-github="https://github.com/vicky200420/Supermarket"
+              data-grad1="#f093fb" data-grad2="#f5576c" data-icon="🛍️">
+              <span>Case Study</span><i class="bi bi-file-earmark-text"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card glass" data-aos="fade-up" data-category="python">
+        <div class="project-image" style="--grad-1:#0c3483; --grad-2:#a2b6df;">
+          <div class="project-image-glow"></div>
+          <span class="project-image-icon">🏥</span>
+        </div>
+        <div class="project-content">
+          <div class="project-tech-tags"><span class="tech-tag">APIs</span><span class="tech-tag">Python</span><span class="tech-tag">SQLite</span><span class="tech-tag">JavaScript</span></div>
+          <h3 class="project-title">Hospital Management System</h3>
+          <p class="project-desc">A full-stack web application that streamlines hospital operations through separate dashboards for Administrators, Doctors, and Patients.</p>
+          <div class="project-links">
+            <a href="https://hospital-management-system-4q8a.onrender.com" target="_blank" class="btn-project-primary"><span>Live Demo</span><i class="bi bi-box-arrow-up-right"></i></a>
+            <a href="https://github.com/vicky200420/Hospital-management-system" target="_blank" class="btn-project-secondary"><span>GitHub</span><i class="bi bi-github"></i></a>
+            <button type="button" class="btn-project-demo" data-bs-toggle="modal" data-bs-target="#projectModal"
+              data-title="Hospital Management System" data-tags="APIs,Python,SQLite,JavaScript"
+              data-desc="A full-stack application that streamlines hospital operations through three separate role-based dashboards for administrators, doctors, and patients."
+              data-challenges="Designing one system that serves three very different user roles without the UI or permissions logic turning into a tangled mess."
+              data-solutions="Split the app into role-scoped views with server-side permission checks per dashboard, sharing a common API layer underneath."
+              data-live="https://hospital-management-system-4q8a.onrender.com" data-github="https://github.com/vicky200420/Hospital-management-system"
+              data-grad1="#0c3483" data-grad2="#a2b6df" data-icon="🏥">
+              <span>Case Study</span><i class="bi bi-file-earmark-text"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Project case-study modal (shared, populated by JS) -->
+<div class="modal fade modal-glass" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="projectModalLabel">Project</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-video-frame" id="modalVisual" style="display:flex;align-items:center;justify-content:center;font-size:4rem;"></div>
+        <div class="project-tech-tags" id="modalTags"></div>
+        <p id="modalDesc" style="color:var(--text-2); margin-top:14px;"></p>
+        <div class="modal-meta-title">Challenges</div>
+        <p id="modalChallenges" style="color:var(--text-2); font-size:.92rem;"></p>
+        <div class="modal-meta-title">Solutions</div>
+        <p id="modalSolutions" style="color:var(--text-2); font-size:.92rem;"></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" target="_blank" id="modalLiveBtn" class="btn-project-primary"><span>Live Demo</span><i class="bi bi-box-arrow-up-right"></i></a>
+        <a href="#" target="_blank" id="modalGithubBtn" class="btn-project-secondary"><span>GitHub</span><i class="bi bi-github"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Statistics -->
+<section id="statistics">
+  <div class="container">
+    <div class="statistics-grid">
+      <div class="stat-card glass" data-aos="fade-up">
+        <div class="stat-icon-wrapper"><i class="bi bi-kanban"></i></div>
+        <div class="stat-number-wrapper"><span class="stat-number" data-countup="5">0</span><span class="stat-plus">+</span></div>
+        <p class="stat-label">Projects Completed</p>
+      </div>
+      <div class="stat-card glass" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-icon-wrapper"><i class="bi bi-patch-check"></i></div>
+        <div class="stat-number-wrapper"><span class="stat-number" data-countup="3">0</span><span class="stat-plus">+</span></div>
+        <p class="stat-label">Certifications</p>
+      </div>
+      <div class="stat-card glass" data-aos="fade-up" data-aos-delay="200">
+        <div class="stat-icon-wrapper"><i class="bi bi-code-square"></i></div>
+        <div class="stat-number-wrapper"><span class="stat-number" data-countup="3">0</span><span class="stat-plus">+</span></div>
+        <p class="stat-label">Years Coding Experience</p>
+      </div>
+      <div class="stat-card glass" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-icon-wrapper"><i class="bi bi-layers"></i></div>
+        <div class="stat-number-wrapper"><span class="stat-number" data-countup="15">0</span><span class="stat-plus">+</span></div>
+        <p class="stat-label">Technologies Learned</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section id="process">
+  <div class="container">
+    <div class="section-kicker-row">
+      <div>
+        <span class="eyebrow">$ workflow --show<span class="blink"></span></span>
+        <h2 class="section-title">Development <span class="text-gradient">Process</span></h2>
+      </div>
+    </div>
+    <div class="process-grid">
+      <div class="process-step glass" data-aos="fade-up">
+        <div class="step-number">01</div>
+        <div class="step-icon-wrapper"><i class="bi bi-clipboard-data"></i></div>
+        <h3 class="step-title">Planning</h3>
+        <p class="step-desc">Requirement analysis, scope definition, and project roadmap</p>
+      </div>
+      <div class="process-step glass" data-aos="fade-up" data-aos-delay="80">
+        <div class="step-number">02</div>
+        <div class="step-icon-wrapper"><i class="bi bi-vector-pen"></i></div>
+        <h3 class="step-title">Design</h3>
+        <p class="step-desc">UI/UX wireframes, prototypes, and visual design mockups</p>
+      </div>
+      <div class="process-step glass" data-aos="fade-up" data-aos-delay="160">
+        <div class="step-number">03</div>
+        <div class="step-icon-wrapper"><i class="bi bi-braces"></i></div>
+        <h3 class="step-title">Development</h3>
+        <p class="step-desc">Frontend & backend coding with modern technologies</p>
+      </div>
+      <div class="process-step glass" data-aos="fade-up" data-aos-delay="240">
+        <div class="step-number">04</div>
+        <div class="step-icon-wrapper"><i class="bi bi-bug"></i></div>
+        <h3 class="step-title">Testing</h3>
+        <p class="step-desc">Quality assurance, bug fixing, and performance optimization</p>
+      </div>
+      <div class="process-step glass" data-aos="fade-up" data-aos-delay="320">
+        <div class="step-number">05</div>
+        <div class="step-icon-wrapper"><i class="bi bi-rocket-takeoff"></i></div>
+        <h3 class="step-title">Deployment</h3>
+        <p class="step-desc">Launch, monitoring, and ongoing support</p>
+      </div>
     </div>
 
-    <!------------------------------ About Section ------------------------------>
-    <section id="abouts" class="about-section">
-        <div class="container">
-            <h2 class="section-title reveal">About <span class="text-gradient">Me</span></h2>
-            <div class="about-grid">
-                <div class="about-visual reveal">
-                    <div class="about-deco about-deco-1"></div>
-                    <div class="cube-wrapper">
-                        <div class="cube">
-                            <div class="cube-face cube-front">
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                            </div>
-                            <div class="cube-face cube-back">
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                            </div>
-                            <div class="cube-face cube-right">
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                            </div>
-                            <div class="cube-face cube-left">
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                            </div>
-                            <div class="cube-face cube-top">
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                            </div>
-                            <div class="cube-face cube-bottom">
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                                <div class="cube-box"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-deco about-deco-2"></div>
-                </div>
-                <div class="about-content reveal">
-                    <h3 class="about-name">Vigneshwar D</h3>
-                    <p class="about-quote-mark">"</p>
-                    <p class="about-text">A passionate Python Full-Stack Developer creating dynamic web applications using Django, JavaScript, and modern UI technologies. I love solving problems and building meaningful digital experiences.</p>
-                    <p class="about-quote-mark about-quote-close">"</p>
-                    <div class="about-stats">
-                        <div class="about-stat">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Projects</span>
-                        </div>
-                        <div class="about-stat">
-                            <span class="stat-number">2+</span>
-                            <span class="stat-label">Frameworks</span>
-                        </div>
-                        <div class="about-stat">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Dedication</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="benefits-grid">
+      <div class="benefit-card glass" data-aos="fade-up">
+        <div class="benefit-icon-wrapper"><i class="bi bi-phone"></i></div>
+        <h3 class="benefit-title">Mobile Friendly</h3>
+        <p class="benefit-desc">Fully responsive designs that work on every device</p>
+      </div>
+      <div class="benefit-card glass" data-aos="fade-up" data-aos-delay="80">
+        <div class="benefit-icon-wrapper"><i class="bi bi-shield-check"></i></div>
+        <h3 class="benefit-title">Secure Website</h3>
+        <p class="benefit-desc">Robust security measures to protect your data</p>
+      </div>
+      <div class="benefit-card glass" data-aos="fade-up" data-aos-delay="160">
+        <div class="benefit-icon-wrapper"><i class="bi bi-life-preserver"></i></div>
+        <h3 class="benefit-title">Lifetime Support</h3>
+        <p class="benefit-desc">Ongoing assistance and maintenance whenever needed</p>
+      </div>
+      <div class="benefit-card glass" data-aos="fade-up" data-aos-delay="240">
+        <div class="benefit-icon-wrapper"><i class="bi bi-speedometer2"></i></div>
+        <h3 class="benefit-title">Fast & Optimized</h3>
+        <p class="benefit-desc">Lightweight code and compressed assets for quick loads</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!------------------------------ Wave Divider 2 ------------------------------>
-    <div class="section-wave wave-bottom">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-            <path d="M0,80 C360,0 1080,120 1440,80 L1440,120 L0,120 Z" fill="#080c1a"/>
-        </svg>
+<!-- GitHub -->
+<section id="github">
+  <div class="container">
+    <div class="github-panel glass" data-aos="fade-up">
+      <div>
+        <span class="eyebrow">$ git remote -v<span class="blink"></span></span>
+        <h2 class="section-title" style="font-size:clamp(1.8rem,3.4vw,2.6rem);">Open Source <span class="text-gradient">Activity</span></h2>
+        <p class="section-sub">Most of my personal and freelance work lives on GitHub — explore the code behind these projects.</p>
+        <div class="github-stats">
+          <div class="github-stat"><b data-countup="12">0</b><span>Repositories</span></div>
+          <div class="github-stat"><b data-countup="8">0</b><span>Followers</span></div>
+          <div class="github-stat"><b data-countup="20">0</b><span>Stars</span></div>
+        </div>
+        <a href="https://github.com/vicky200420" target="_blank" class="btn-github"><i class="bi bi-github"></i> View GitHub Profile</a>
+      </div>
+      <div class="github-heatmap">
+        <img src="https://ghchart.rshah.org/6c8cff/vicky200420" alt="Vigneshwar D GitHub contribution heatmap" loading="lazy" style="width:100%;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-kicker-row">
+      <div>
+        <span class="eyebrow">$ ls ./certificates<span class="blink"></span></span>
+        <h2 class="section-title">My <span class="text-gradient">Certifications</span></h2>
+      </div>
     </div>
 
-    <!------------------------------ Skills Section ------------------------------>
-    <section id="skills" class="skills-section">
-        <div class="container">
-            <h2 class="section-title reveal">Technical <span class="text-gradient">Skills</span></h2>
-            <div class="skills-grid">
-                <div class="skill-card reveal">
-                    <div class="skill-icon-wrapper">
-                        <span class="skill-icon">&#128187;</span>
-                    </div>
-                    <h3 class="skill-title">Frontend</h3>
-                    <p class="skill-desc">HTML, CSS, Bootstrap, JavaScript</p>
-                    <div class="skill-progress">
-                        <div class="skill-progress-bar" data-width="90">
-                            <div class="skill-progress-fill" style="width: 0%;"></div>
-                        </div>
-                        <span class="skill-percent">90%</span>
-                    </div>
-                </div>
-                <div class="skill-card reveal">
-                    <div class="skill-icon-wrapper">
-                        <span class="skill-icon">&#128013;</span>
-                    </div>
-                    <h3 class="skill-title">Backend</h3>
-                    <p class="skill-desc">Python, Django, Django ORM</p>
-                    <div class="skill-progress">
-                        <div class="skill-progress-bar" data-width="85">
-                            <div class="skill-progress-fill" style="width: 0%;"></div>
-                        </div>
-                        <span class="skill-percent">85%</span>
-                    </div>
-                </div>
-                <div class="skill-card reveal">
-                    <div class="skill-icon-wrapper">
-                        <span class="skill-icon">&#128451;</span>
-                    </div>
-                    <h3 class="skill-title">Database</h3>
-                    <p class="skill-desc">MySQL, PostgreSQL</p>
-                    <div class="skill-progress">
-                        <div class="skill-progress-bar" data-width="80">
-                            <div class="skill-progress-fill" style="width: 0%;"></div>
-                        </div>
-                        <span class="skill-percent">80%</span>
-                    </div>
-                </div>
-                <div class="skill-card reveal">
-                    <div class="skill-icon-wrapper">
-                        <span class="skill-icon">&#9881;</span>
-                    </div>
-                    <h3 class="skill-title">Tools</h3>
-                    <p class="skill-desc">Git, VS Code</p>
-                    <div class="skill-progress">
-                        <div class="skill-progress-bar" data-width="75">
-                            <div class="skill-progress-fill" style="width: 0%;"></div>
-                        </div>
-                        <span class="skill-percent">75%</span>
-                    </div>
-                </div>
-            </div>
+    <div class="swiper certSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="cert-card glass">
+            <div class="cert-icon-wrapper"><i class="bi bi-laptop"></i></div>
+            <h3 class="cert-title">Python Full Stack Development</h3>
+            <p class="cert-issuer">CodeIT99 Academy</p>
+          </div>
         </div>
-    </section>
-
-    <!------------------------------ Wave Divider 3 ------------------------------>
-    <div class="section-wave wave-top">
-        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path d="M0,30 C360,90 1080,0 1440,30 L1440,100 L0,100 Z" fill="#080c1a"/>
-        </svg>
+        <div class="swiper-slide">
+          <div class="cert-card glass">
+            <div class="cert-icon-wrapper"><i class="bi bi-brush"></i></div>
+            <h3 class="cert-title">Web Designing</h3>
+            <p class="cert-issuer">Vallamai</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="cert-card glass">
+            <div class="cert-icon-wrapper"><i class="bi bi-tools"></i></div>
+            <h3 class="cert-title">IT Deployments: Business & Technical Support</h3>
+            <p class="cert-issuer">Udemy</p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination" style="position:static; margin-top:20px;"></div>
     </div>
-
-    <!------------------------------ Services Section ------------------------------>
-    <section id="services" class="services-section">
-        <div class="container">
-            <h2 class="section-title reveal">What <span class="text-gradient">I Do</span></h2>
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-icon-wrapper">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    </div>
-                    <h3 class="service-title">Web Development</h3>
-                    <p class="service-desc">Full-stack web solutions built with modern technologies</p>
-                    <div class="service-items">
-                        <span class="service-item">Business Websites</span>
-                        <span class="service-item">Portfolio Websites</span>
-                        <span class="service-item">Hospital Systems</span>
-                        <span class="service-item">Student Projects</span>
-                        <span class="service-item">Landing Pages</span>
-                        <span class="service-item">Admin Dashboards</span>
-                        <span class="service-item">E-Commerce Websites</span>
-                    </div>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon-wrapper">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                    </div>
-                    <h3 class="service-title">Backend Development</h3>
-                    <p class="service-desc">Scalable APIs and database solutions with Django</p>
-                    <div class="service-items">
-                        <span class="service-item">Django APIs</span>
-                        <span class="service-item">Authentication</span>
-                        <span class="service-item">Database Design</span>
-                        <span class="service-item">Admin Panels</span>
-                    </div>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon-wrapper">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                    </div>
-                    <h3 class="service-title">UI Development</h3>
-                    <p class="service-desc">Pixel-perfect responsive interfaces with modern frameworks</p>
-                    <div class="service-items">
-                        <span class="service-item">Responsive Websites</span>
-                        <span class="service-item">Tailwind CSS</span>
-                        <span class="service-item">Modern UI</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!------------------------------ Wave Divider 3.5 ------------------------------>
-    <div class="section-wave wave-bottom">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-            <path d="M0,80 C360,0 1080,120 1440,80 L1440,120 L0,120 Z" fill="#080c1a"/>
-        </svg>
+    <div class="cert-nav">
+      <div class="swiper-btn cert-prev"><i class="bi bi-arrow-left"></i></div>
+      <div class="swiper-btn cert-next"><i class="bi bi-arrow-right"></i></div>
     </div>
+  </div>
+</section>
 
-    <!------------------------------ Experience Section ------------------------------>
-    <section id="experience" class="experience-section">
-        <div class="container">
-            <h2 class="section-title reveal">Work <span class="text-gradient">Experience</span></h2>
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2025 - Present</span>
-                        <h3 class="timeline-role">Developer Intern</h3>
-                        <h4 class="timeline-company">MediVoy</h4>
-                        <p class="timeline-desc">Developed and maintained RESTful APIs using Django REST Framework. Built responsive frontend interfaces with Bootstrap and JavaScript. Collaborated on database schema design and optimization for MySQL and PostgreSQL.</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2024 - 2025</span>
-                        <h3 class="timeline-role">Python Developer Intern</h3>
-                        <h4 class="timeline-company">The SkyBrisk</h4>
-                        <p class="timeline-desc">Built full-stack web applications using Django and Bootstrap. Implemented user authentication, payment integration, and admin dashboards. Worked with PostgreSQL and SQLite databases for data management.</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2023 - 2024</span>
-                        <h3 class="timeline-role">Freelance Web Developer</h3>
-                        <h4 class="timeline-company">Self-Employed</h4>
-                        <p class="timeline-desc">Designed and delivered custom websites for small businesses using HTML, CSS, JavaScript, and Django. Managed client relationships, project timelines, and deployment on various hosting platforms.</p>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <!------------------------------ Wave Divider 4 ------------------------------>
-    <div class="section-wave wave-bottom">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-            <path d="M0,80 C360,0 1080,120 1440,80 L1440,120 L0,120 Z" fill="#080c1a"/>
-        </svg>
+<!-- Contact -->
+<section id="contacts">
+  <div class="container">
+    <div class="section-kicker-row">
+      <div>
+        <span class="eyebrow">$ contact --new<span class="blink"></span></span>
+        <h2 class="section-title">Get In <span class="text-gradient">Touch</span></h2>
+      </div>
     </div>
+    <p class="contact-subtitle" data-aos="fade-up">Let's connect! Send a message directly or reach out through any of the platforms below.</p>
 
-    <!------------------------------ Projects Section ------------------------------>
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <h2 class="section-title reveal">Featured <span class="text-gradient">Projects</span></h2>
-            <div class="projects-grid">
-                <div class="project-card reveal">
-                    <div class="project-image" style="--grad-1: #ff6b6b; --grad-2: #ffa502;">
-                        <div class="project-image-glow"></div>
-                        <span class="project-image-icon">&#127860;</span>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tech-tags">
-                            <span class="tech-tag" data-tech="html">HTML</span>
-                            <span class="tech-tag" data-tech="css">CSS</span>
-                        </div>
-                        <h3 class="project-title">Tender Fired Restaurants</h3>
-                        <p class="project-desc">A Tinder-style restaurant discovery web app that allows users to swipe through restaurant cards to like or skip options.</p>
-                        <div class="project-links">
-                            <a href="https://vicky200420.github.io/TFR-Tender-Fired-Restaurants/" target="_blank" class="btn-project-primary">
-                                <span>Live Demo</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </a>
-                            <a href="https://github.com/vicky200420/TFR-Tender-Fired-Restaurants.git" target="_blank" class="btn-project-secondary">
-                                <span>GitHub</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <div class="project-image" style="--grad-1: #38d9a9; --grad-2: #4facfe;">
-                        <div class="project-image-glow"></div>
-                        <span class="project-image-icon">&#127973;</span>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tech-tags">
-                            <span class="tech-tag" data-tech="python">Python</span>
-                            <span class="tech-tag" data-tech="sql">SQLite</span>
-                            <span class="tech-tag" data-tech="bootstrap">Bootstrap</span>
-                        </div>
-                        <h3 class="project-title">Clinic Appointment System</h3>
-                        <p class="project-desc">Online doctor appointment booking platform with scheduling and patient registration.</p>
-                        <div class="project-links">
-                            <a href="https://hospital-appointment-mcp2.onrender.com" target="_blank" class="btn-project-primary">
-                                <span>Live Demo</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </a>
-                            <a href="https://github.com/vicky200420/Hospital_appointment.git" target="_blank" class="btn-project-secondary">
-                                <span>GitHub</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <div class="project-image" style="--grad-1: #a18cd1; --grad-2: #fbc2eb;">
-                        <div class="project-image-glow"></div>
-                        <span class="project-image-icon">&#128722;</span>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tech-tags">
-                            <span class="tech-tag" data-tech="python">Python</span>
-                            <span class="tech-tag" data-tech="sql">PostgreSQL</span>
-                            <span class="tech-tag" data-tech="bootstrap">Bootstrap</span>
-                        </div>
-                        <h3 class="project-title">E-Kart Ecommerce</h3>
-                        <p class="project-desc">Full-stack e-commerce application using Django following MVT architecture with product management and cart functionality.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/vicky200420/ekart_django.git" target="_blank" class="btn-project-secondary">
-                                <span>GitHub</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <div class="project-image" style="--grad-1: #f093fb; --grad-2: #f5576c;">
-                        <div class="project-image-glow"></div>
-                        <span class="project-image-icon">&#127828;</span>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tech-tags">
-                            <span class="tech-tag" data-tech="html">HTML</span>
-                            <span class="tech-tag" data-tech="css">CSS</span>
-                            <span class="tech-tag" data-tech="bootstrap">Bootstrap</span>
-                            <span class="tech-tag" data-tech="js">JavaScript</span>
-                        </div>
-                        <h3 class="project-title">SuperMarket</h3>
-                        <p class="project-desc">A responsive frontend website with interactive menu, cart UI, and modern food-themed design. Built to simulate an online ordering experience.</p>
-                        <div class="project-links">
-                            <a href="https://vicky200420.github.io/Supermarket/" class="btn-project-primary">
-                                <span>Live Demo</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </a>
-                            <a href="https://github.com/vicky200420/Supermarket" target="_blank" class="btn-project-secondary">
-                                <span>GitHub</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <div class="project-image" style="--grad-1: #0c3483; --grad-2: #a2b6df;">
-                        <div class="project-image-glow"></div>
-                        <span class="project-image-icon">&#127973;</span>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tech-tags">
-                            <span class="tech-tag" data-tech="api">APIs</span>
-                            <span class="tech-tag" data-tech="python">Python</span>
-                            <span class="tech-tag" data-tech="sql">SQLite</span>
-                            <span class="tech-tag" data-tech="js">JavaScript</span>
-                        </div>
-                        <h3 class="project-title">Hospital Management System</h3>
-                        <p class="project-desc">A full-stack web application built that streamlines hospital operations through separate dashboards for Administrators, Doctors, and Patients.</p>
-                        <div class="project-links">
-                            <a href="https://hospital-management-system-4q8a.onrender.com" target="_blank" class="btn-project-primary">
-                                <span>Live Demo</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </a>
-                            <a href="https://github.com/vicky200420/ekart_django.git" target="_blank" class="btn-project-secondary">
-                                <span>GitHub</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="contact-layout">
+      <form class="contact-form-card glass" id="contactForm" data-aos="fade-right" novalidate>
+        <div class="form-floating-glass">
+          <input type="text" id="cName" placeholder=" " required>
+          <label for="cName">Your Name</label>
+          <span class="form-error" id="errName"></span>
         </div>
-    </section>
+        <div class="form-floating-glass">
+          <input type="email" id="cEmail" placeholder=" " required>
+          <label for="cEmail">Your Email</label>
+          <span class="form-error" id="errEmail"></span>
+        </div>
+        <div class="form-floating-glass">
+          <textarea id="cMessage" placeholder=" " required></textarea>
+          <label for="cMessage">Your Message</label>
+          <span class="form-error" id="errMessage"></span>
+        </div>
+        <button type="submit" class="btn-submit">
+          <span class="btn-submit-text">Send Message</span>
+          <span class="spinner-ring"></span>
+        </button>
+      </form>
 
-    <!------------------------------ Wave Divider 5 ------------------------------>
-    <div class="section-wave wave-top">
-        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path d="M0,30 C360,90 1080,0 1440,30 L1440,100 L0,100 Z" fill="#080c1a"/>
-        </svg>
+      <div data-aos="fade-left">
+        <div class="contact-grid">
+          <a href="https://www.linkedin.com/in/vigneshwar-d-200415vb" target="_blank" class="contact-item glass" style="--brand: rgba(10,102,194,.5);">
+            <div class="contact-circle"><img src="./contactimage/linkdin.png" alt="LinkedIn" loading="lazy"></div>
+            <span class="contact-label">LinkedIn</span>
+          </a>
+          <a href="https://github.com/vicky200420" target="_blank" class="contact-item glass" style="--brand: rgba(160,160,160,.5);">
+            <div class="contact-circle"><img src="./contactimage/github.png" alt="GitHub" loading="lazy"></div>
+            <span class="contact-label">GitHub</span>
+          </a>
+          <a href="https://x.com/VIGNESHWAR88411?t=T0IRbs_F2yApBUapSEpOig&s=09" target="_blank" class="contact-item glass" style="--brand: rgba(29,161,242,.5);">
+            <div class="contact-circle"><img src="./contactimage/twitter.png" alt="Twitter" loading="lazy"></div>
+            <span class="contact-label">Twitter</span>
+          </a>
+          <a href="mailto:vigneshwar312@gmail.com" target="_blank" class="contact-item glass" style="--brand: rgba(234,67,53,.5);">
+            <div class="contact-circle"><img src="./contactimage/gmail.png" alt="Gmail" loading="lazy"></div>
+            <span class="contact-label">Gmail</span>
+          </a>
+          <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=femhaz8" target="_blank" class="contact-item glass" style="--brand: rgba(228,64,95,.5);">
+            <div class="contact-circle"><img src="./contactimage/instagram.png" alt="Instagram" loading="lazy"></div>
+            <span class="contact-label">Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/vicky.vikky.94352" target="_blank" class="contact-item glass" style="--brand: rgba(24,119,242,.5);">
+            <div class="contact-circle"><img src="./contactimage/facebook.png" alt="Facebook" loading="lazy"></div>
+            <span class="contact-label">Facebook</span>
+          </a>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!------------------------------ Statistics Section ------------------------------>
-    <section id="statistics" class="statistics-section">
-        <div class="container">
-            <div class="statistics-grid">
-                <div class="stat-card reveal">
-                    <div class="stat-icon-wrapper">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-                    </div>
-                    <div class="stat-number-wrapper">
-                        <span class="stat-number" data-target="5">0</span>
-                        <span class="stat-plus">+</span>
-                    </div>
-                    <p class="stat-label">Projects Completed</p>
-                </div>
-                <div class="stat-card reveal">
-                    <div class="stat-icon-wrapper">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                    </div>
-                    <div class="stat-number-wrapper">
-                        <span class="stat-number" data-target="3">0</span>
-                        <span class="stat-plus">+</span>
-                    </div>
-                    <p class="stat-label">Certifications</p>
-                </div>
-                <div class="stat-card reveal">
-                    <div class="stat-icon-wrapper">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                    </div>
-                    <div class="stat-number-wrapper">
-                        <span class="stat-number" data-target="3">0</span>
-                        <span class="stat-plus">+</span>
-                    </div>
-                    <p class="stat-label">Years coding Experience</p>
-                </div>
-                <div class="stat-card reveal">
-                    <div class="stat-icon-wrapper">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                    </div>
-                    <div class="stat-number-wrapper">
-                        <span class="stat-number" data-target="15">0</span>
-                        <span class="stat-plus">+</span>
-                    </div>
-                    <p class="stat-label">Technologies Learned</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!------------------------------ Development Process Section ------------------------------>
-    <section id="process" class="process-section">
-        <div class="container">
-            <h2 class="section-title reveal">Development <span class="text-gradient">Process</span></h2>
-            <div class="process-grid">
-                <div class="process-step reveal">
-                    <div class="step-connector"></div>
-                    <div class="step-number">01</div>
-                    <div class="step-icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                    </div>
-                    <h3 class="step-title">Planning</h3>
-                    <p class="step-desc">Requirement analysis, scope definition, and project roadmap</p>
-                </div>
-                <div class="process-step reveal">
-                    <div class="step-connector"></div>
-                    <div class="step-number">02</div>
-                    <div class="step-icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-                    </div>
-                    <h3 class="step-title">Design</h3>
-                    <p class="step-desc">UI/UX wireframes, prototypes, and visual design mockups</p>
-                </div>
-                <div class="process-step reveal">
-                    <div class="step-connector"></div>
-                    <div class="step-number">03</div>
-                    <div class="step-icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                    </div>
-                    <h3 class="step-title">Development</h3>
-                    <p class="step-desc">Frontend & backend coding with modern technologies</p>
-                </div>
-                <div class="process-step reveal">
-                    <div class="step-connector"></div>
-                    <div class="step-number">04</div>
-                    <div class="step-icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                    </div>
-                    <h3 class="step-title">Testing</h3>
-                    <p class="step-desc">Quality assurance, bug fixing, and performance optimization</p>
-                </div>
-                <div class="process-step reveal">
-                    <div class="step-number">05</div>
-                    <div class="step-icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                    </div>
-                    <h3 class="step-title">Deploy</h3>
-                    <p class="step-desc">Launch, monitoring, and ongoing support & maintenance</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!------------------------------ Client Benefits Section ------------------------------>
-    <section id="benefits" class="benefits-section">
-        <div class="container">
-            <h2 class="section-title reveal">Client <span class="text-gradient">Benefits</span></h2>
-            <div class="benefits-grid">
-                <div class="benefit-card reveal">
-                    <div class="benefit-icon-wrapper">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                    </div>
-                    <h3 class="benefit-title">Affordable Price</h3>
-                    <p class="benefit-desc">Competitive pricing without compromising on quality</p>
-                </div>
-                <div class="benefit-card reveal">
-                    <div class="benefit-icon-wrapper">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </div>
-                    <h3 class="benefit-title">Fast Delivery</h3>
-                    <p class="benefit-desc">Timely project completion with efficient workflows</p>
-                </div>
-                <div class="benefit-card reveal">
-                    <div class="benefit-icon-wrapper">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                    </div>
-                    <h3 class="benefit-title">Modern Design</h3>
-                    <p class="benefit-desc">Clean and contemporary UI with best UX practices</p>
-                </div>
-                <div class="benefit-card reveal">
-                    <div class="benefit-icon-wrapper">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    </div>
-                    <h3 class="benefit-title">Mobile Friendly</h3>
-                    <p class="benefit-desc">Fully responsive designs that work on every device</p>
-                </div>
-                <div class="benefit-card reveal">
-                    <div class="benefit-icon-wrapper">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3 class="benefit-title">Secure Website</h3>
-                    <p class="benefit-desc">Robust security measures to protect your data</p>
-                </div>
-                <div class="benefit-card reveal">
-                    <div class="benefit-icon-wrapper">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    </div>
-                    <h3 class="benefit-title">Lifetime Support</h3>
-                    <p class="benefit-desc">Ongoing assistance and maintenance whenever needed</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!------------------------------ Wave Divider 7 ------------------------------>
-    <div class="section-wave wave-bottom">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-            <path d="M0,80 C360,0 1080,120 1440,80 L1440,120 L0,120 Z" fill="#080c1a"/>
-        </svg>
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-gradient-line"></div>
+    <div class="footer-content">
+      <p class="footer-text">Designed &amp; Built by <span class="text-gradient">Vigneshwar D</span></p>
+      <div class="footer-links">
+        <a href="https://github.com/vicky200420" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/vigneshwar-d-200415vb" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="mailto:vigneshwar312@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+      </div>
+      <p class="footer-copy">&copy; 2026 All Rights Reserved</p>
     </div>
+  </div>
+</footer>
 
-    <!------------------------------ Certifications Section ------------------------------>
-    <section id="certifications" class="certifications-section">
-        <div class="container">
-            <h2 class="section-title reveal">My <span class="text-gradient">Certifications</span></h2>
-            <div class="certifications-grid">
-                <div class="cert-card reveal">
-                    <div class="cert-icon-wrapper">
-                        <span class="cert-icon">&#128187;</span>
-                    </div>
-                    <h3 class="cert-title">Python Full Stack Development</h3>
-                    <p class="cert-issuer">CodeIT99 Academy</p>
-                </div>
-                <div class="cert-card reveal">
-                    <div class="cert-icon-wrapper">
-                        <span class="cert-icon">&#127912;</span>
-                    </div>
-                    <h3 class="cert-title">Web Designing</h3>
-                    <p class="cert-issuer">Vallamai</p>
-                </div>
-                <div class="cert-card reveal">
-                    <div class="cert-icon-wrapper">
-                        <span class="cert-icon">&#128295;</span>
-                    </div>
-                    <h3 class="cert-title">IT Deployments: Business & Technical Support</h3>
-                    <p class="cert-issuer">Udemy</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Scroll to top -->
+<button id="scrollToTop" class="scroll-top-btn" aria-label="Scroll to top">
+  <i class="bi bi-arrow-up"></i>
+</button>
 
-    <!------------------------------ Wave Divider 6 ------------------------------>
-    <div class="section-wave wave-bottom">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-            <path d="M0,80 C360,0 1080,120 1440,80 L1440,120 L0,120 Z" fill="#080c1a"/>
-        </svg>
+<!-- Command Palette -->
+<div class="modal fade cmdk-modal" id="cmdkModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="cmdk-input-wrap">
+        <i class="bi bi-search"></i>
+        <input type="text" id="cmdkInput" placeholder="Jump to a section…" autocomplete="off">
+        <kbd style="font-family:var(--font-mono); font-size:.7rem; color:var(--text-3); border:1px solid var(--border-soft); padding:2px 6px; border-radius:4px;">Esc</kbd>
+      </div>
+      <div class="cmdk-list" id="cmdkList">
+        <div class="cmdk-item" data-target="#home"><span class="cmdk-left"><i class="bi bi-house"></i> Home</span><small>Go to</small></div>
+        <div class="cmdk-item" data-target="#abouts"><span class="cmdk-left"><i class="bi bi-person"></i> About</span><small>Go to</small></div>
+        <div class="cmdk-item" data-target="#skills"><span class="cmdk-left"><i class="bi bi-cpu"></i> Skills</span><small>Go to</small></div>
+        <div class="cmdk-item" data-target="#projects"><span class="cmdk-left"><i class="bi bi-kanban"></i> Projects</span><small>Go to</small></div>
+        <div class="cmdk-item" data-target="#certifications"><span class="cmdk-left"><i class="bi bi-patch-check"></i> Certifications</span><small>Go to</small></div>
+        <div class="cmdk-item" data-target="./Vigneshwar Resume updated(1).pdf" data-external="true"><span class="cmdk-left"><i class="bi bi-file-earmark-arrow-down"></i> Resume</span><small>Download</small></div>
+        <div class="cmdk-item" data-target="https://github.com/vicky200420" data-external="true"><span class="cmdk-left"><i class="bi bi-github"></i> GitHub</span><small>Open</small></div>
+        <div class="cmdk-item" data-target="https://www.linkedin.com/in/vigneshwar-d-200415vb" data-external="true"><span class="cmdk-left"><i class="bi bi-linkedin"></i> LinkedIn</span><small>Open</small></div>
+        <div class="cmdk-item" data-target="#contacts"><span class="cmdk-left"><i class="bi bi-envelope"></i> Contact</span><small>Go to</small></div>
+      </div>
     </div>
+  </div>
+</div>
 
-    <!------------------------------ Contact Section ------------------------------>
-    <section id="contacts" class="contact-section">
-        <div class="container">
-            <h2 class="section-title reveal">Get In <span class="text-gradient">Touch</span></h2>
-            <p class="contact-subtitle reveal">Let's connect! Reach out through any of the platforms below.</p>
-            <div class="contact-grid reveal">
-                <a href="https://www.linkedin.com/in/vigneshwar-d-200415vb" target="_blank" class="contact-item" style="--brand: #0a66c2;">
-                    <div class="contact-circle">
-                        <img src="./contactimage/linkdin.png" alt="LinkedIn" loading="lazy">
-                    </div>
-                    <span class="contact-label">LinkedIn</span>
-                </a>
-                <a href="https://github.com/vicky200420" target="_blank" class="contact-item" style="--brand: #333;">
-                    <div class="contact-circle">
-                        <img src="./contactimage/github.png" alt="GitHub" loading="lazy">
-                    </div>
-                    <span class="contact-label">GitHub</span>
-                </a>
-                <a href="https://x.com/VIGNESHWAR88411?t=T0IRbs_F2yApBUapSEpOig&s=09" target="_blank" class="contact-item" style="--brand: #1da1f2;">
-                    <div class="contact-circle">
-                        <img src="./contactimage/twitter.png" alt="Twitter" loading="lazy">
-                    </div>
-                    <span class="contact-label">Twitter</span>
-                </a>
-                <a href="mailto:vigneshwar312@gmail.com" target="_blank" class="contact-item" style="--brand: #ea4335;">
-                    <div class="contact-circle">
-                        <img src="./contactimage/gmail.png" alt="Gmail" loading="lazy">
-                    </div>
-                    <span class="contact-label">Gmail</span>
-                </a>
-                <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=femhaz8" target="_blank" class="contact-item" style="--brand: #e4405f;">
-                    <div class="contact-circle">
-                        <img src="./contactimage/instagram.png" alt="Instagram" loading="lazy">
-                    </div>
-                    <span class="contact-label">Instagram</span>
-                </a>
-                <a href="https://www.facebook.com/vicky.vikky.94352" target="_blank" class="contact-item" style="--brand: #1877f2;">
-                    <div class="contact-circle">
-                        <img src="./contactimage/facebook.png" alt="Facebook" loading="lazy">
-                    </div>
-                    <span class="contact-label">Facebook</span>
-                </a>
-            </div>
-        </div>
-    </section>
+<!-- Toast -->
+<div class="toast-success" id="successToast">
+  <i class="bi bi-check-circle-fill"></i>
+  <span>Message sent — thanks! I'll reply soon.</span>
+</div>
 
-    <!------------------------------ Footer ------------------------------>
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <p class="footer-text">Designed & Built by <span class="text-gradient">Vigneshwar D</span></p>
-                <p class="footer-copy">&copy; 2026 All Rights Reserved</p>
-            </div>
-        </div>
-    </footer>
-
-    <!------------------------------ Scroll to Top ------------------------------>
-    <button id="scrollToTop" class="scroll-top-btn" aria-label="Scroll to top">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"/></svg>
-    </button>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <script>
-    (function() {
-        // --- Welcome Screen ---
-        setTimeout(function() {
-            var welcome = document.getElementById('welcome-screen');
-            if (welcome) {
-                welcome.classList.add('hidden');
-            }
-        }, 3000);
-
-        // --- Typewriter Effect ---
-        const typewriterEl = document.querySelector('.typewriter-text');
-        const text = "Python Full Stack Developer";
-        let index = 0;
-
-        function typeWriter() {
-            if (index < text.length) {
-                typewriterEl.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, 60);
-            }
-        }
-
-        setTimeout(typeWriter, 800);
-
-        // --- Scroll Reveal using IntersectionObserver ---
-        const revealElements = document.querySelectorAll('.reveal, .fade-up');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-        revealElements.forEach(el => observer.observe(el));
-
-        // --- Progress Bar Animation ---
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const fills = entry.target.querySelectorAll('.skill-progress-fill');
-                    fills.forEach(fill => {
-                        const width = fill.closest('.skill-progress-bar').dataset.width;
-                        fill.style.width = width + '%';
-                    });
-                }
-            });
-        }, { threshold: 0.3 });
-
-        document.querySelectorAll('.skills-grid').forEach(grid => skillObserver.observe(grid));
-
-        // --- Active Nav Link on Scroll ---
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        function updateActiveLink() {
-            let current = '';
-            sections.forEach(section => {
-                const top = section.offsetTop - 200;
-                if (window.scrollY >= top) {
-                    current = section.getAttribute('id');
-                }
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateActiveLink, { passive: true });
-        updateActiveLink();
-
-        // --- Navbar Background on Scroll ---
-        const navbar = document.getElementById('mainNav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
-        }, { passive: true });
-
-        // --- Scroll to Top Button ---
-        const scrollBtn = document.getElementById('scrollToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                scrollBtn.classList.add('visible');
-            } else {
-                scrollBtn.classList.remove('visible');
-            }
-        }, { passive: true });
-
-        scrollBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // --- Timeline Animation ---
-        const timelineObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.querySelectorAll('.timeline-item').forEach((item, i) => {
-                        setTimeout(() => {
-                            item.classList.add('visible');
-                        }, i * 200);
-                    });
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.timeline').forEach(tl => timelineObserver.observe(tl));
-
-        // --- Statistics Counter Animation ---
-        function animateCounter(el) {
-            const target = parseInt(el.dataset.target);
-            const duration = 1500;
-            const start = performance.now();
-            function update(currentTime) {
-                const elapsed = currentTime - start;
-                const progress = Math.min(elapsed / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
-                el.textContent = Math.floor(eased * target);
-                if (progress < 1) requestAnimationFrame(update);
-            }
-            requestAnimationFrame(update);
-        }
-
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.querySelectorAll('.stat-number').forEach(num => {
-                        if (!num.dataset.animated) {
-                            num.dataset.animated = 'true';
-                            animateCounter(num);
-                        }
-                    });
-                }
-            });
-        }, { threshold: 0.3 });
-
-        document.querySelectorAll('.statistics-grid').forEach(grid => statsObserver.observe(grid));
-
-        // --- Close mobile menu on link click ---
-        const navCollapse = document.querySelector('.navbar-collapse');
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                const bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
-                if (bsCollapse) bsCollapse.hide();
-            });
-        });
-    })();
-    </script>
-
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
+<script src="./app.js"></script>
 </body>
 </html>
