@@ -79,7 +79,7 @@
   /* ---------------------------------------------------------------------
      VanillaTilt
   --------------------------------------------------------------------- */
-  if (window.VanillaTilt) {
+  if (window.VanillaTilt && !window.matchMedia("(pointer: coarse)").matches) {
     VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
       max: 8,
       speed: 400,

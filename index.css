@@ -64,7 +64,7 @@ html[data-theme="light"]{
 }
 
 *{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
+html{ scroll-behavior: smooth; overflow-x: clip; }
 html[data-lenis], body{ scroll-behavior: smooth; }
 
 @media (prefers-reduced-motion: reduce){
@@ -139,8 +139,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .section-sub{ color: var(--text-2); max-width: 520px; font-size:1.02rem; }
 
-section{ position: relative; padding: 130px 0; }
-@media (max-width: 767px){ section{ padding: 90px 0; } }
+section{ position: relative; padding: 130px 0; scroll-margin-top: 84px; }
+@media (max-width: 767px){ section{ padding: 90px 0; scroll-margin-top: 76px; } }
 
 /* glass card base */
 .glass{
@@ -669,4 +669,63 @@ html[data-theme="light"] .modal-glass .btn-close{ filter:none; }
 /* ---------------------------------- misc responsive ---------------------------------- */
 @media (max-width: 767px){
   .section-kicker-row{ flex-direction:column; align-items:flex-start; }
+}
+
+/* ---------------------------------- Mobile fine-tuning -------------------------------- */
+@media (max-width: 767px){
+  .hero-section{ padding-top: 110px; padding-bottom: 60px; min-height:auto; }
+  .hero-scroll-indicator{ display:none; }
+  .section-kicker-row{ margin-bottom: 42px; }
+  .project-desc{ min-height: 0; }
+  .cert-title{ min-height: 0; }
+  .timeline{ padding-left: 26px; }
+  .timeline-item{ padding-left: 20px; }
+  .contact-form-card{ padding: 26px 20px; }
+  .github-panel{ padding: 26px 18px; }
+  .about-stats{ gap: 10px; }
+}
+
+@media (max-width: 575px){
+  section{ padding: 70px 0; }
+  #mainNav .container-fluid{ padding: 0 16px; gap: 10px; }
+  .navbar-brand{ font-size: 1.05rem; }
+  .section-title{ font-size: 1.75rem; margin-bottom: 14px; }
+  .section-kicker-row{ margin-bottom: 34px; }
+  .eyebrow{ font-size: .72rem; }
+  .hero-name{ font-size: 2.35rem; }
+  .hero-title{ font-size: 1.05rem; }
+  .hero-desc{ font-size: .98rem; }
+  .hero-actions{ flex-direction: column; align-items: stretch; width: 100%; }
+  .btn-hero-primary, .btn-hero-secondary, .btn-hero-tertiary{ width: 100%; justify-content: center; padding: 14px 20px; }
+  .hero-image-wrapper{ width: min(300px, 74vw); }
+  .about-frame{ width: 100%; }
+  .about-stat{ padding: 14px 10px; }
+  .about-stat .stat-number{ font-size: 1.5rem; }
+  .skills-grid{ gap: 14px; }
+  .skill-card{ padding: 24px 18px; }
+  .services-grid{ gap: 16px; }
+  .service-card{ padding: 26px 20px; }
+  .projects-grid{ gap: 18px; }
+  .project-content{ padding: 20px 18px; }
+  .statistics-grid{ gap: 14px; }
+  .stat-card{ padding: 24px 14px; }
+  .stat-number-wrapper{ font-size: 2rem; }
+  .process-grid{ gap: 14px; }
+  .benefits-grid{ grid-template-columns: 1fr; gap: 14px; }
+  .github-stats{ gap: 10px; }
+  .github-stat b{ font-size: 1.5rem; }
+  .contact-layout{ gap: 30px; }
+  .contact-subtitle{ margin-bottom: 30px; }
+  .contact-grid{ gap: 12px; }
+  .contact-item{ padding: 18px 10px; }
+  .cert-nav{ display:none; }
+  .footer-text{ font-size: .95rem; }
+  .scroll-top-btn{ right: 16px; bottom: 16px; width: 44px; height: 44px; }
+}
+
+@media (max-width: 400px){
+  .about-stats{ grid-template-columns: 1fr; gap: 8px; }
+  .about-stat{ display: flex; align-items: baseline; justify-content: center; gap: 6px; }
+  .about-stat .stat-number{ display: inline-block; }
+  .btn-hero-primary, .btn-hero-secondary, .btn-hero-tertiary{ font-size: .9rem; padding: 13px 16px; }
 }
